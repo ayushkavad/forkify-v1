@@ -7,10 +7,6 @@ class RecipeView {
 
   render(data) {
     this.#data = data;
-<<<<<<< HEAD
-=======
-    console.log(this.#data);
->>>>>>> 60954c327dfcd4033a86c76e67f1f053d5ee65bc
     const markup = this.#genetateMarkup();
     this.#clear();
     this.#parentEl.insertAdjacentHTML('afterbegin', markup);
@@ -120,10 +116,6 @@ class RecipeView {
   }
 
   #generateMarkupIngredients(ing) {
-<<<<<<< HEAD
-=======
-    console.log(ing);
->>>>>>> 60954c327dfcd4033a86c76e67f1f053d5ee65bc
     return `
         <li class="recipe__ingredient">
         <svg class="recipe__icon">

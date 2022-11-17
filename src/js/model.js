@@ -12,10 +12,6 @@ export const loadRecipe = async function (id) {
     );
 
     const data = await response.json();
-<<<<<<< HEAD
-=======
-    console.log(response, data);
->>>>>>> 60954c327dfcd4033a86c76e67f1f053d5ee65bc
 
     if (!response.ok)
       throw new Error(`${data.message} status ${response.status}`);
