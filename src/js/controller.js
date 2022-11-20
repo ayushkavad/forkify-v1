@@ -33,7 +33,7 @@ const controleSearchResults = async function () {
     resultView.spinnerRender();
     const query = searchView.getQuery();
     await model.loadSearchResult(query);
-    resultView.render(model.state.search.results);
+    resultView.render(model.getSearchResultsPage());
   } catch (err) {
     console.log(err);
   }
