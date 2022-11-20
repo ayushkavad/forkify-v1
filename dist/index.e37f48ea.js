@@ -542,8 +542,11 @@ var _recipeViewJs = require("./Views/recipeView.js");
 var _recipeViewJsDefault = parcelHelpers.interopDefault(_recipeViewJs);
 var _searchViewJs = require("./Views/searchView.js");
 var _searchViewJsDefault = parcelHelpers.interopDefault(_searchViewJs);
+var _resultViewJs = require("./Views/resultView.js");
+var _resultViewJsDefault = parcelHelpers.interopDefault(_resultViewJs);
 var _runtime = require("regenerator-runtime/runtime");
 var _regeneratorRuntime = require("regenerator-runtime");
+if (module.hot) module.hot.accept();
 const controleRecipes = async function() {
     const id = window.location.hash.slice(1);
     if (!id) return;
@@ -559,9 +562,10 @@ const controleRecipes = async function() {
 };
 const controleSearchResults = async function() {
     try {
+        (0, _resultViewJsDefault.default).spinnerRender();
         const query = (0, _searchViewJsDefault.default).getQuery();
         await _modelJs.loadSearchResult(query);
-        console.log(_modelJs.state.search.results);
+        (0, _resultViewJsDefault.default).render(_modelJs.state.search.results);
     } catch (err) {
         console.log(err);
     }
@@ -572,7 +576,7 @@ const init = function() {
 };
 init();
 
-},{"core-js/modules/es.regexp.flags.js":"gSXXb","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./Views/recipeView.js":"17Msr","./Views/searchView.js":"1ldzZ","regenerator-runtime/runtime":"dXNgZ","regenerator-runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gSXXb":[function(require,module,exports) {
+},{"core-js/modules/es.regexp.flags.js":"gSXXb","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./Views/recipeView.js":"17Msr","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Views/searchView.js":"1ldzZ","regenerator-runtime":"dXNgZ","./Views/resultView.js":"Bsn6J"}],"gSXXb":[function(require,module,exports) {
 var global = require("../internals/global");
 var DESCRIPTORS = require("../internals/descriptors");
 var defineBuiltInAccessor = require("../internals/define-built-in-accessor");
@@ -1821,7 +1825,7 @@ const loadSearchResult = async function(query) {
             return {
                 id: recipe.id,
                 title: recipe.title,
-                sourceUrl: recipe.source_url,
+                publisher: recipe.publisher,
                 image: recipe.image_url
             };
         });
@@ -1830,7 +1834,7 @@ const loadSearchResult = async function(query) {
     }
 };
 
-},{"regenerator-runtime":"dXNgZ","./config":"k5Hzs","./helper":"lVRAz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
+},{"regenerator-runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./config":"k5Hzs","./helper":"lVRAz"}],"dXNgZ":[function(require,module,exports) {
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
  *
@@ -2411,15 +2415,7 @@ try {
     else Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{}],"k5Hzs":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "API_URL", ()=>API_URL);
-parcelHelpers.export(exports, "TIME_SECOND", ()=>TIME_SECOND);
-const API_URL = "https://forkify-api.herokuapp.com/api/v2/recipes/";
-const TIME_SECOND = 10;
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+},{}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -2449,7 +2445,15 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"lVRAz":[function(require,module,exports) {
+},{}],"k5Hzs":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "API_URL", ()=>API_URL);
+parcelHelpers.export(exports, "TIME_SECOND", ()=>TIME_SECOND);
+const API_URL = "https://forkify-api.herokuapp.com/api/v2/recipes/";
+const TIME_SECOND = 10;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"lVRAz":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getJSON", ()=>getJSON);
@@ -2482,9 +2486,9 @@ parcelHelpers.defineInteropFlag(exports);
 var _fractional = require("fractional");
 var _iconsSvg = require("url:../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
-var _view = require("./View");
-var _viewDefault = parcelHelpers.interopDefault(_view);
-class RecipeView extends (0, _viewDefault.default) {
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+class RecipeView extends (0, _viewJsDefault.default) {
     _parentEl = document.querySelector(".recipe");
     _errorMessage = "We could not recipes found for your query. Please try again!";
     _message = "";
@@ -2530,9 +2534,7 @@ class RecipeView extends (0, _viewDefault.default) {
             </div>
         </div>
         <div class="recipe__user-generated">
-            <svg>
-            <use href="${0, _iconsSvgDefault.default}#icon-user"></use>
-            </svg>
+          
         </div>
         <button class="btn--round">
             <svg class="">
@@ -2582,7 +2584,7 @@ class RecipeView extends (0, _viewDefault.default) {
 }
 exports.default = new RecipeView();
 
-},{"fractional":"3SU56","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","url:../../img/icons.svg":"loVOp","./View":"3BOfc"}],"3SU56":[function(require,module,exports) {
+},{"fractional":"3SU56","url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"3BOfc"}],"3SU56":[function(require,module,exports) {
 /*
 fraction.js
 A Javascript fraction library.
@@ -2880,6 +2882,7 @@ var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class View {
     _data;
     render(data) {
+        if (!data || Array.isArray(data) && data.length === 0) return this.renderErrorMessage();
         this._data = data;
         const markup = this._generateMarkup();
         this._clear();
@@ -2953,6 +2956,37 @@ class searchView {
 }
 exports.default = new searchView();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fA0o9","aenu9"], "aenu9", "parcelRequire3a11")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Bsn6J":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _viewJs = require("./View.js");
+var _viewJsDefault = parcelHelpers.interopDefault(_viewJs);
+class ResultView extends (0, _viewJsDefault.default) {
+    _parentEl = document.querySelector(".results");
+    _errorMessage = "no recipe found for your quary! Please try again ;)";
+    _message = "";
+    _generateMarkup() {
+        console.log(this._data);
+        return this._data.map(this._generateMarkupPreview).join("");
+    }
+    _generateMarkupPreview(results) {
+        console.log(results);
+        return ` 
+        <li class="preview">
+            <a class="preview__link" href="#${results.id}">
+              <figure class="preview__fig">
+                <img src="${results.image}" alt="${results.title}" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">${results.title}</h4>
+                <p class="preview__publisher">${results.publisher}</p>
+              </div>
+            </a>
+        </li>`;
+    }
+}
+exports.default = new ResultView();
+
+},{"./View.js":"3BOfc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["fA0o9","aenu9"], "aenu9", "parcelRequire3a11")
 
 //# sourceMappingURL=index.e37f48ea.js.map
