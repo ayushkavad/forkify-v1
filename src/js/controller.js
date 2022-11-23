@@ -39,8 +39,8 @@ const controleSearchResults = async function () {
   }
 };
 
-const controlePagination = function (goto) {
-  resultView.render(model.getSearchResultsPage(goto));
+const controlePagination = function (goToPage) {
+  resultView.render(model.getSearchResultsPage(goToPage));
   paginationView.render(model.state.search);
 };
 

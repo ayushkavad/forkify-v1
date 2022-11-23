@@ -571,8 +571,8 @@ const controleSearchResults = async function() {
         console.log(err);
     }
 };
-const controlePagination = function(goto) {
-    (0, _resultViewJsDefault.default).render(_modelJs.getSearchResultsPage(goto));
+const controlePagination = function(goToPage) {
+    (0, _resultViewJsDefault.default).render(_modelJs.getSearchResultsPage(goToPage));
     (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
 };
 const init = function() {
@@ -3015,8 +3015,8 @@ class PaginationView extends (0, _viewDefault.default) {
         this._parentEl.addEventListener("click", function(e) {
             const btn = e.target.closest(".btn--inline");
             if (!btn) return;
-            const goto = +btn.dataset.goto;
-            handler(goto);
+            const goToPage = +btn.dataset.goto;
+            handler(goToPage);
         });
     }
     _generateMarkup() {
