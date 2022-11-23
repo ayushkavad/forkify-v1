@@ -2170,7 +2170,7 @@
 74/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/regions/OM.js1668525625270170562 0
 74/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/regions/SB.js1668525625286171032 0
 80/home/hiren/www/ayush/forkify/node_modules/core-js/internals/number-parse-int.js1668620874886754963 0
-56/home/hiren/www/ayush/forkify/dist/index.e37f48ea.js.map1668948396840498619 0
+56/home/hiren/www/ayush/forkify/dist/index.e37f48ea.js.map1669029087517344608 0
 68/home/hiren/www/ayush/forkify/node_modules/core-js/es/is-iterable.js1668620874734754460 0
 66/home/hiren/www/ayush/forkify/node_modules/core-js/es/math/cbrt.js1668620873626750790 0
 88/home/hiren/www/ayush/forkify/node_modules/core-js/features/typed-array/last-index-of.js1668620874810754712 0
@@ -2348,7 +2348,7 @@
 46/home/hiren/www/ayush/forkify/src/js/config.js1668948396744497839 0
 74/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/regions/PR.js1668525625274170680 0
 84/home/hiren/www/ayush/forkify/node_modules/core-js/actual/array/virtual/to-sorted.js1668620875246756156 0
-57/home/hiren/www/ayush/forkify/dist/index.f7626f62.css.map1668948348196103236 0
+57/home/hiren/www/ayush/forkify/dist/index.f7626f62.css.map1669029087517344608 0
 73/home/hiren/www/ayush/forkify/node_modules/core-js/internals/to-string.js1668620875270756235 0
 72/home/hiren/www/ayush/forkify/node_modules/@parcel/fs/lib/browser.js.map1668525624770155862 0
 72/home/hiren/www/ayush/forkify/node_modules/core-js/full/object/freeze.js1668620874534753798 0
@@ -3063,7 +3063,7 @@
 94/home/hiren/www/ayush/forkify/node_modules/core-js/modules/esnext.reflect.get-metadata-keys.js1668620874030752128 0
 77/home/hiren/www/ayush/forkify/node_modules/core-js/es/array/virtual/values.js1668620875366756553 0
 72/home/hiren/www/ayush/forkify/node_modules/cosmiconfig/dist/loaders.d.ts1668525624854158333 0
-34/home/hiren/www/ayush/forkify/dist1668948396840498619 1
+34/home/hiren/www/ayush/forkify/dist1669029087517344608 1
 69/home/hiren/www/ayush/forkify/node_modules/css-tree/lib/syntax/pseudo1668525625118166095 1
 90/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/features/keyboardevent-key.js1668525625250169975 0
 78/home/hiren/www/ayush/forkify/node_modules/core-js/stable/string/virtual/at.js1668620873586750658 0
@@ -3482,7 +3482,7 @@
 76/home/hiren/www/ayush/forkify/node_modules/core-js/features/string/repeat.js1668620874966755229 0
 79/home/hiren/www/ayush/forkify/node_modules/core-js/full/async-iterator/index.js1668620874674754262 0
 123/home/hiren/www/ayush/forkify/node_modules/@parcel/node-resolver-core/test/fixture/node_modules/package-module/package.json1668525625166167506 0
-53/home/hiren/www/ayush/forkify/dist/icons.21bad73c.svg1668948348196103236 0
+53/home/hiren/www/ayush/forkify/dist/icons.21bad73c.svg1669029087501344347 0
 82/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/features/autofocus.js1668525624882159156 0
 50/home/hiren/www/ayush/forkify/node_modules/is-json1668525624510148214 1
 73/home/hiren/www/ayush/forkify/node_modules/@jridgewell/trace-mapping/dist1668525624706153980 1
@@ -3609,7 +3609,7 @@
 74/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/regions/GR.js1668525625230169386 0
 67/home/hiren/www/ayush/forkify/node_modules/nullthrows/nullthrows.js1668525624494147744 0
 71/home/hiren/www/ayush/forkify/node_modules/source-map/lib/base64-vlq.js1668525624610151155 0
-52/home/hiren/www/ayush/forkify/dist/index.e37f48ea.js1668948396836498587 0
+52/home/hiren/www/ayush/forkify/dist/index.e37f48ea.js1669029087513344543 0
 88/home/hiren/www/ayush/forkify/node_modules/core-js/es/object/get-own-property-symbols.js1668620874578753944 0
 90/home/hiren/www/ayush/forkify/node_modules/@parcel/watcher/src/watchman/WatchmanBackend.cc1668525624722154450 0
 74/home/hiren/www/ayush/forkify/node_modules/posthtml-render/dist/index.d.ts1668525624622151509 0
@@ -3681,7 +3681,7 @@
 74/home/hiren/www/ayush/forkify/node_modules/immutable/dist/immutable.min.js1668525751965663363 0
 77/home/hiren/www/ayush/forkify/node_modules/cosmiconfig/dist/getDirectory.d.ts1668525624846158097 0
 64/home/hiren/www/ayush/forkify/node_modules/domutils/lib/feeds.js1668525624470147037 0
-53/home/hiren/www/ayush/forkify/dist/index.f7626f62.css1668948348196103236 0
+53/home/hiren/www/ayush/forkify/dist/index.f7626f62.css1669029087501344347 0
 70/home/hiren/www/ayush/forkify/node_modules/@swc/helpers/lib/_update.js1668525624954161275 0
 78/home/hiren/www/ayush/forkify/node_modules/core-js/stable/typed-array/slice.js1668620875082755612 0
 65/home/hiren/www/ayush/forkify/node_modules/core-js/stable/reflect1668620875262756209 1
@@ -3778,7 +3778,7 @@
 70/home/hiren/www/ayush/forkify/node_modules/css-tree/lib/lexer/error.js1668525624974161863 0
 65/home/hiren/www/ayush/forkify/node_modules/domelementtype/lib/esm1668525624630151744 1
 90/home/hiren/www/ayush/forkify/node_modules/core-js/modules/es.typed-array.last-index-of.js1668620873978751956 0
-55/home/hiren/www/ayush/forkify/dist/favicon.8b2f57bf.png1668948348184103138 0
+55/home/hiren/www/ayush/forkify/dist/favicon.8b2f57bf.png1669029087501344347 0
 88/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/features/intrinsic-width.js1668525625246169857 0
 67/home/hiren/www/ayush/forkify/node_modules/css-tree/data/patch.json1668525625142166801 0
 74/home/hiren/www/ayush/forkify/node_modules/core-js/modules/es.math.imul.js1668620873862751572 0
@@ -3924,7 +3924,7 @@
 85/home/hiren/www/ayush/forkify/node_modules/entities/lib/generated/decode-data-html.js1668525624614151273 0
 69/home/hiren/www/ayush/forkify/node_modules/core-js/full/math/expm1.js1668620874130752460 0
 87/home/hiren/www/ayush/forkify/node_modules/caniuse-lite/data/features/css-exclusions.js1668525625110165860 0
-45/home/hiren/www/ayush/forkify/dist/index.html1668948348152102878 0
+45/home/hiren/www/ayush/forkify/dist/index.html1669029087501344347 0
 92/home/hiren/www/ayush/forkify/node_modules/@parcel/reporter-dev-server/lib/ServerReporter.js1668525624890159392 0
 73/home/hiren/www/ayush/forkify/node_modules/css-what/lib/es/parse.d.ts.map1668525624730154685 0
 69/home/hiren/www/ayush/forkify/node_modules/@parcel/hash/index.js.flow1668525624458146685 0
@@ -5813,7 +5813,7 @@
 67/home/hiren/www/ayush/forkify/node_modules/core-js/internals/uid.js1668620875334756447 0
 74/home/hiren/www/ayush/forkify/node_modules/core-js/actual/function/name.js1668620874882754950 0
 77/home/hiren/www/ayush/forkify/node_modules/core-js/internals/a-constructor.js1668620872866748272 0
-53/home/hiren/www/ayush/forkify/dist/icons.dfd7a6db.svg1668948348196103236 0
+53/home/hiren/www/ayush/forkify/dist/icons.dfd7a6db.svg1669029087501344347 0
 90/home/hiren/www/ayush/forkify/node_modules/core-js/internals/regexp-unsupported-dot-all.js1668620874958755202 0
 89/home/hiren/www/ayush/forkify/node_modules/core-js/internals/url-constructor-detection.js1668620875362756540 0
 91/home/hiren/www/ayush/forkify/node_modules/source-map-support/browser-source-map-support.js1668525624486147508 0
@@ -6567,7 +6567,7 @@
 75/home/hiren/www/ayush/forkify/node_modules/core-js/full/number/is-finite.js1668620874730754447 0
 82/home/hiren/www/ayush/forkify/node_modules/core-js/stable/string/virtual/substr.js1668620875174755917 0
 76/home/hiren/www/ayush/forkify/node_modules/core-js/features/weak-map/from.js1668620874542753824 0
-50/home/hiren/www/ayush/forkify/src/js/controller.js1668948176110703516 0
+50/home/hiren/www/ayush/forkify/src/js/controller.js1669029219999575972 0
 75/home/hiren/www/ayush/forkify/node_modules/core-js/full/set/intersection.js1668620874718754407 0
 70/home/hiren/www/ayush/forkify/node_modules/core-js/full/set/add-all.js1668620872882748325 0
 58/home/hiren/www/ayush/forkify/node_modules/source-map/dist1668525624874158922 1
@@ -6809,7 +6809,7 @@
 73/home/hiren/www/ayush/forkify/node_modules/core-js/features/array/keys.js1668620874802754685 0
 74/home/hiren/www/ayush/forkify/node_modules/core-js/features/array/every.js1668620874126752446 0
 79/home/hiren/www/ayush/forkify/node_modules/@parcel/transformer-svg/package.json1668525624654152450 0
-45/home/hiren/www/ayush/forkify/src/js/model.js1668948392712465071 0
+45/home/hiren/www/ayush/forkify/src/js/model.js1669029087201339444 0
 78/home/hiren/www/ayush/forkify/node_modules/core-js/features/array/unique-by.js1668620875354756514 0
 72/home/hiren/www/ayush/forkify/node_modules/core-js/stable/array/slice.js1668620875078755599 0
 75/home/hiren/www/ayush/forkify/node_modules/core-js/stable/array/flat-map.js1668620874506753705 0
@@ -7234,7 +7234,7 @@
 91/home/hiren/www/ayush/forkify/node_modules/@swc/helpers/src/_apply_decorated_descriptor.mjs1668525624970161746 0
 71/home/hiren/www/ayush/forkify/node_modules/core-js/es/weak-set/index.js1668620874662754222 0
 63/home/hiren/www/ayush/forkify/node_modules/core-js/es/data-view1668620874654754195 1
-52/home/hiren/www/ayush/forkify/dist/logo.726d37a8.png1668948348184103138 0
+52/home/hiren/www/ayush/forkify/dist/logo.726d37a8.png1669029087513344543 0
 79/home/hiren/www/ayush/forkify/node_modules/core-js/es/array/virtual/iterator.js1668620874758754540 0
 75/home/hiren/www/ayush/forkify/node_modules/core-js/es/array/virtual/flat.js1668620874506753705 0
 81/home/hiren/www/ayush/forkify/node_modules/lmdb/dependencies/lz4/lib/liblz4.pc.in1668525625154167153 0
