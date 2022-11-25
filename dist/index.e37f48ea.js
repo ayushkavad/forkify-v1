@@ -556,6 +556,7 @@ const controleRecipes = async function() {
     try {
         await _modelJs.loadRecipe(id);
         (0, _recipeViewJsDefault.default).render(_modelJs.state.recipe);
+    // controleUpdateServings();
     } catch (err) {
         (0, _recipeViewJsDefault.default).renderErrorMessage();
     }
@@ -565,7 +566,7 @@ const controleSearchResults = async function() {
         (0, _resultViewJsDefault.default).spinnerRender();
         const query = (0, _searchViewJsDefault.default).getQuery();
         await _modelJs.loadSearchResult(query);
-        (0, _resultViewJsDefault.default).render(_modelJs.getSearchResultsPage(6));
+        (0, _resultViewJsDefault.default).render(_modelJs.getSearchResultsPage());
         (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
     } catch (err) {
         console.log(err);
@@ -575,14 +576,19 @@ const controlePagination = function(goToPage) {
     (0, _resultViewJsDefault.default).render(_modelJs.getSearchResultsPage(goToPage));
     (0, _paginationViewJsDefault.default).render(_modelJs.state.search);
 };
+const controleUpdateServings = function(updateTO) {
+    _modelJs.updateServings(updateTO);
+    (0, _recipeViewJsDefault.default).render(_modelJs.state.recipe);
+};
 const init = function() {
     (0, _recipeViewJsDefault.default).addHandlerRender(controleRecipes);
+    (0, _recipeViewJsDefault.default).addHandlerUpdateServings(controleUpdateServings);
     (0, _searchViewJsDefault.default).addHandlerSearch(controleSearchResults);
     (0, _paginationViewJsDefault.default).addHandlerClick(controlePagination);
 };
 init();
 
-},{"core-js/modules/es.regexp.flags.js":"gSXXb","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./Views/recipeView.js":"17Msr","./Views/searchView.js":"1ldzZ","./Views/resultView.js":"Bsn6J","./Views/paginationView.js":"4oefe","regenerator-runtime/runtime":"dXNgZ","regenerator-runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gSXXb":[function(require,module,exports) {
+},{"core-js/modules/es.regexp.flags.js":"gSXXb","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./Views/recipeView.js":"17Msr","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Views/searchView.js":"1ldzZ","regenerator-runtime":"dXNgZ","./Views/resultView.js":"Bsn6J","./Views/paginationView.js":"4oefe"}],"gSXXb":[function(require,module,exports) {
 var global = require("../internals/global");
 var DESCRIPTORS = require("../internals/descriptors");
 var defineBuiltInAccessor = require("../internals/define-built-in-accessor");
@@ -1796,6 +1802,7 @@ parcelHelpers.export(exports, "state", ()=>state);
 parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe);
 parcelHelpers.export(exports, "loadSearchResult", ()=>loadSearchResult);
 parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
+parcelHelpers.export(exports, "updateServings", ()=>updateServings);
 var _regeneratorRuntime = require("regenerator-runtime");
 var _config = require("./config");
 var _helper = require("./helper");
@@ -1838,6 +1845,7 @@ const loadSearchResult = async function(query) {
                 image: recipe.image_url
             };
         });
+        console.log(state);
     } catch (err) {
         throw err;
     }
@@ -1847,6 +1855,13 @@ const getSearchResultsPage = function(page = state.search.page) {
     const start = (page - 1) * state.search.resultsPerPages;
     const end = page * state.search.resultsPerPages;
     return state.search.results.slice(start, end);
+};
+const updateServings = function(newServings) {
+    state.recipe.ingredients.forEach((ing)=>{
+        ing.quantity = ing.quantity * newServings / state.recipe.servings;
+    });
+    // newQt =  oldQt + newServings / oldServings
+    state.recipe.servings = newServings;
 };
 
 },{"regenerator-runtime":"dXNgZ","./config":"k5Hzs","./helper":"lVRAz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
@@ -2515,6 +2530,14 @@ class RecipeView extends (0, _viewJsDefault.default) {
             "load"
         ].forEach((ev)=>window.addEventListener(ev, handler));
     }
+    addHandlerUpdateServings(handler) {
+        this._parentEl.addEventListener("click", function(e) {
+            const btn = e.target.closest(".btn--update-servings");
+            if (!btn) return;
+            const { updateTo  } = btn.dataset;
+            if (+updateTo > 0) handler(+updateTo);
+        });
+    }
     _generateMarkup() {
         return `
         <figure class="recipe__fig">
@@ -2538,12 +2561,12 @@ class RecipeView extends (0, _viewJsDefault.default) {
             <span class="recipe__info-data recipe__info-data--people">${this._data.servings}</span>
             <span class="recipe__info-text">servings</span>
             <div class="recipe__info-buttons">
-            <button class="btn--tiny btn--increase-servings">
+            <button class="btn--tiny btn--update-servings" data-update-to=${this._data.servings - 1}>
                 <svg>
                 <use href="${0, _iconsSvgDefault.default}#icon-minus-circle"></use>
                 </svg>
             </button>
-            <button class="btn--tiny btn--increase-servings">
+            <button class="btn--tiny btn--update-servings" data-update-to=${this._data.servings + 1}>
                 <svg>
                 <use href="${0, _iconsSvgDefault.default}#icon-plus-circle"></use>
                 </svg>
@@ -2601,7 +2624,7 @@ class RecipeView extends (0, _viewJsDefault.default) {
 }
 exports.default = new RecipeView();
 
-},{"fractional":"3SU56","url:../../img/icons.svg":"loVOp","./View.js":"3BOfc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3SU56":[function(require,module,exports) {
+},{"fractional":"3SU56","url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"3BOfc"}],"3SU56":[function(require,module,exports) {
 /*
 fraction.js
 A Javascript fraction library.

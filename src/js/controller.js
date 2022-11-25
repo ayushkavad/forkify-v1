@@ -22,6 +22,7 @@ export const controleRecipes = async function () {
     await model.loadRecipe(id);
 
     recipeView.render(model.state.recipe);
+    // controleUpdateServings();
   } catch (err) {
     recipeView.renderErrorMessage();
   }
@@ -32,7 +33,7 @@ const controleSearchResults = async function () {
     resultView.spinnerRender();
     const query = searchView.getQuery();
     await model.loadSearchResult(query);
-    resultView.render(model.getSearchResultsPage(6));
+    resultView.render(model.getSearchResultsPage());
     paginationView.render(model.state.search);
   } catch (err) {
     console.log(err);
@@ -44,8 +45,14 @@ const controlePagination = function (goToPage) {
   paginationView.render(model.state.search);
 };
 
+const controleUpdateServings = function (updateTO) {
+  model.updateServings(updateTO);
+  recipeView.render(model.state.recipe);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controleRecipes);
+  recipeView.addHandlerUpdateServings(controleUpdateServings);
   searchView.addHandlerSearch(controleSearchResults);
   paginationView.addHandlerClick(controlePagination);
 };
