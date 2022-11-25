@@ -52,9 +52,16 @@ const controleUpdateServings = function (updateTO) {
   recipeView.update(model.state.recipe);
 };
 
+const controleBookmark = function () {
+  if (!model.state.recipe.bookmark) model.bookMarkRecipe(model.state.recipe);
+  else model.deleteBookmark(model.state.recipe.id);
+  recipeView.update(model.state.recipe);
+};
+
 const init = function () {
   recipeView.addHandlerRender(controleRecipes);
   recipeView.addHandlerUpdateServings(controleUpdateServings);
+  recipeView.addHandlerBookmark(controleBookmark);
   searchView.addHandlerSearch(controleSearchResults);
   paginationView.addHandlerClick(controlePagination);
 };

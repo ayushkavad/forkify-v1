@@ -581,15 +581,21 @@ const controleUpdateServings = function(updateTO) {
     // recipeView.render(model.state.recipe);
     (0, _recipeViewJsDefault.default).update(_modelJs.state.recipe);
 };
+const controleBookmark = function() {
+    if (!_modelJs.state.recipe.bookmark) _modelJs.bookMarkRecipe(_modelJs.state.recipe);
+    else _modelJs.deleteBookmark(_modelJs.state.recipe.id);
+    (0, _recipeViewJsDefault.default).update(_modelJs.state.recipe);
+};
 const init = function() {
     (0, _recipeViewJsDefault.default).addHandlerRender(controleRecipes);
     (0, _recipeViewJsDefault.default).addHandlerUpdateServings(controleUpdateServings);
+    (0, _recipeViewJsDefault.default).addHandlerBookmark(controleBookmark);
     (0, _searchViewJsDefault.default).addHandlerSearch(controleSearchResults);
     (0, _paginationViewJsDefault.default).addHandlerClick(controlePagination);
 };
 init();
 
-},{"core-js/modules/es.regexp.flags.js":"gSXXb","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./Views/recipeView.js":"17Msr","regenerator-runtime/runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./Views/searchView.js":"1ldzZ","regenerator-runtime":"dXNgZ","./Views/resultView.js":"Bsn6J","./Views/paginationView.js":"4oefe"}],"gSXXb":[function(require,module,exports) {
+},{"core-js/modules/es.regexp.flags.js":"gSXXb","core-js/modules/web.immediate.js":"49tUX","./model.js":"Y4A21","./Views/recipeView.js":"17Msr","./Views/searchView.js":"1ldzZ","./Views/resultView.js":"Bsn6J","./Views/paginationView.js":"4oefe","regenerator-runtime/runtime":"dXNgZ","regenerator-runtime":"dXNgZ","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gSXXb":[function(require,module,exports) {
 var global = require("../internals/global");
 var DESCRIPTORS = require("../internals/descriptors");
 var defineBuiltInAccessor = require("../internals/define-built-in-accessor");
@@ -1804,6 +1810,8 @@ parcelHelpers.export(exports, "loadRecipe", ()=>loadRecipe);
 parcelHelpers.export(exports, "loadSearchResult", ()=>loadSearchResult);
 parcelHelpers.export(exports, "getSearchResultsPage", ()=>getSearchResultsPage);
 parcelHelpers.export(exports, "updateServings", ()=>updateServings);
+parcelHelpers.export(exports, "bookMarkRecipe", ()=>bookMarkRecipe);
+parcelHelpers.export(exports, "deleteBookmark", ()=>deleteBookmark);
 var _regeneratorRuntime = require("regenerator-runtime");
 var _config = require("./config");
 var _helper = require("./helper");
@@ -1814,7 +1822,8 @@ const state = {
         results: [],
         page: 1,
         resultsPerPages: (0, _config.SEARCH_RESULT_PER_PAGE)
-    }
+    },
+    bookmark: []
 };
 const loadRecipe = async function(id) {
     try {
@@ -1830,6 +1839,8 @@ const loadRecipe = async function(id) {
             cookingTime: recipe.cooking_time,
             ingredients: recipe.ingredients
         };
+        if (state.bookmark.some((bookmark)=>bookmark.id === id)) state.recipe.bookmark = true;
+        else state.recipe.bookmark = false;
     } catch (err) {
         throw err;
     }
@@ -1846,6 +1857,7 @@ const loadSearchResult = async function(query) {
                 image: recipe.image_url
             };
         });
+        state.search.page = 1;
         console.log(state);
     } catch (err) {
         throw err;
@@ -1863,6 +1875,15 @@ const updateServings = function(newServings) {
     });
     // newQt =  oldQt + newServings / oldServings
     state.recipe.servings = newServings;
+};
+const bookMarkRecipe = function(recipe) {
+    state.bookmark.push(recipe);
+    if (recipe.id === state.recipe.id) state.recipe.bookmark = true;
+};
+const deleteBookmark = function(id) {
+    const index = state.bookmark.findIndex((recipe)=>recipe.id === id);
+    state.bookmark.splice(index, 1);
+    if (id === state.recipe.id) state.recipe.bookmark = false;
 };
 
 },{"regenerator-runtime":"dXNgZ","./config":"k5Hzs","./helper":"lVRAz","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXNgZ":[function(require,module,exports) {
@@ -2539,6 +2560,14 @@ class RecipeView extends (0, _viewJsDefault.default) {
             if (+updateTo > 0) handler(+updateTo);
         });
     }
+    addHandlerBookmark(handler) {
+        this._parentEl.addEventListener("click", function(e) {
+            const btn = e.target.closest(".btn--bookmark");
+            console.log(btn);
+            if (!btn) return;
+            handler();
+        });
+    }
     _generateMarkup() {
         return `
         <figure class="recipe__fig">
@@ -2577,9 +2606,9 @@ class RecipeView extends (0, _viewJsDefault.default) {
         <div class="recipe__user-generated">
           
         </div>
-        <button class="btn--round">
+        <button class="btn--round btn--bookmark">
             <svg class="">
-            <use href="${0, _iconsSvgDefault.default}#icon-bookmark-fill"></use>
+            <use href="${0, _iconsSvgDefault.default}#icon-bookmark${this._data.bookmark ? "-fill" : ""}"></use>
             </svg>
         </button>
         </div>
@@ -2625,7 +2654,7 @@ class RecipeView extends (0, _viewJsDefault.default) {
 }
 exports.default = new RecipeView();
 
-},{"fractional":"3SU56","url:../../img/icons.svg":"loVOp","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./View.js":"3BOfc"}],"3SU56":[function(require,module,exports) {
+},{"fractional":"3SU56","url:../../img/icons.svg":"loVOp","./View.js":"3BOfc","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3SU56":[function(require,module,exports) {
 /*
 fraction.js
 A Javascript fraction library.
