@@ -8,9 +8,9 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime';
 
-if (module.hot) {
-  module.hot.accept();
-}
+// if (module.hot) {
+//   module.hot.accept();
+// }
 
 export const controleRecipes = async function () {
   const id = window.location.hash.slice(1);
@@ -19,6 +19,7 @@ export const controleRecipes = async function () {
   recipeView.spinnerRender();
 
   try {
+    resultView.update(model.getSearchResultsPage());
     await model.loadRecipe(id);
 
     recipeView.render(model.state.recipe);
@@ -47,7 +48,8 @@ const controlePagination = function (goToPage) {
 
 const controleUpdateServings = function (updateTO) {
   model.updateServings(updateTO);
-  recipeView.render(model.state.recipe);
+  // recipeView.render(model.state.recipe);
+  recipeView.update(model.state.recipe);
 };
 
 const init = function () {
